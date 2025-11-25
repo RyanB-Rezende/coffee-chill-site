@@ -49,24 +49,26 @@
 }
 
 .icon {
-  width: 46px;
-  height: 46px;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: #fff;
-  border-radius: 16px;
+  border-radius: 14px;
   box-shadow: 0 10px 22px rgba(0,0,0,0.08);
   border: 1px solid rgba(226, 204, 186, 0.7);
 }
 
-.icon svg {
-  width: 30px;
-  height: 30px;
+.icon svg,
+.icon img {
+  width: 28px;
+  height: 28px;
   display: block;
+  object-fit: contain;
 }
 
-.whatsapp-icon svg path { filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15)); }
 
 .contato-card p {
   font-size: 0.9rem;

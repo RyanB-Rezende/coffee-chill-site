@@ -310,6 +310,20 @@ main {
   color: var(--primary-dark);
 }
 
+/* Ícones nas redes do footer */
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.footer-social .social-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  object-fit: contain;
+}
+
 .footer-bottom {
   margin-top: 1.4rem;
   text-align: center;
