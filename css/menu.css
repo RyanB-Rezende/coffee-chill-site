@@ -1,0 +1,120 @@
+/* Estilos específicos da página de Cardápio */
+
+.menu-page {
+  margin-top: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.menu-page h1 {
+  font-size: 1.9rem;
+  margin-bottom: 0.9rem;
+}
+
+.menu-intro {
+  max-width: 760px;
+  font-size: 0.97rem;
+  color: var(--text-muted);
+  margin-bottom: 1.6rem;
+}
+
+.menu-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.4rem;
+}
+
+.menu-filter {
+  appearance: none;
+  border: 1px solid rgba(226, 204, 186, 0.8);
+  background: var(--bg-card);
+  color: var(--text-main);
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.menu-filter.active {
+  background: var(--primary-dark);
+  color: #fff;
+  border-color: var(--primary-dark);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.menu-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(226, 204, 186, 0.7);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  padding: 1.1rem 1.05rem;
+}
+
+.menu-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 0.7rem;
+}
+
+.menu-card-header h3 {
+  font-size: 1.05rem;
+}
+
+.menu-card-price {
+  font-weight: 700;
+  color: var(--primary-dark);
+  font-size: 0.95rem;
+}
+
+.menu-card-img {
+  width: 100%;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  margin-bottom: 0.6rem;
+}
+
+.menu-card-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.menu-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* Responsividade */
+@media (max-width: 980px) {
+  .menu-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-page h1 {
+    font-size: 1.6rem;
+  }
+
+  .menu-intro {
+    font-size: 0.9rem;
+  }
+}

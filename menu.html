@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cardápio • Coffee & Chill</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+  <!-- Header (igual nas outras páginas) -->
+  <header class="site-header">
+    <div class="logo">Coffee & Chill</div>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="menu.html" class="active">Cardápio</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="menu-page">
+      <div class="container">
+        <h1>Cardápio</h1>
+        <p class="menu-intro">
+          Conheça nossos cafés especiais, bebidas geladas, doces e salgados
+          preparados para acompanhar qualquer momento do seu dia.
+        </p>
+
+        <!-- Filtros de categoria -->
+        <div class="menu-filtros" id="menu-filtros">
+          <!-- Botões criados via JS -->
+        </div>
+
+        <!-- Grade de itens -->
+        <div class="menu-grid" id="menu-grid">
+          <!-- Cards criados via JS -->
+        </div>
+
+        <!-- Informação de origem dos dados (Supabase ou local) -->
+        <p class="menu-origem" id="menu-origem"></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (igual ao das outras páginas) -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <span class="logo">Coffee & Chill</span>
+        <p>O seu lugar favorito para café e boas conversas.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Links</h4>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Cardápio</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+      </div>
+      <div class="footer-social">
+        <h4>Redes</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <small>&copy; 2025 Coffee & Chill. Todos os direitos reservados.</small>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/menu-dados-locais.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>
