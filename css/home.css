@@ -191,6 +191,27 @@
   color: var(--text-muted);
 }
 
+/* ===== BOTÃO ADMIN (DISCRETO) ===== */
+.home-footer-admin-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  color: rgba(139, 69, 19, 0.4);
+  text-decoration: none;
+  border: 1px solid rgba(139, 69, 19, 0.2);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+.home-footer-admin-link:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
 /* Responsividade */
 @media (max-width: 900px) {
   .home-logo {

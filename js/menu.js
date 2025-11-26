@@ -41,6 +41,17 @@
     }
   }
 
+  async function fetchPromocoes(categoriaId) {
+    const todos = await fetchItens(categoriaId);
+    const now = new Date();
+    return todos.filter(i => {
+      const ativa = !!i.promocao_ativa && i.preco_promocional != null;
+      const dentroJanela = (!i.promocao_inicio || new Date(i.promocao_inicio) <= now) &&
+                           (!i.promocao_fim || new Date(i.promocao_fim) >= now);
+      return ativa && dentroJanela;
+    });
+  }
+
   function makeCard(item) {
     const imgUrl = window.storagePublicUrl(item.imagem_caminho);
 
@@ -55,7 +66,22 @@
 
     const price = document.createElement('span');
     price.className = 'menu-card-price';
-    price.textContent = priceBRL(item.preco);
+    const promoActive = !!item.promocao_ativa;
+    const now = new Date();
+    const inWindow = (!item.promocao_inicio || new Date(item.promocao_inicio) <= now) &&
+                     (!item.promocao_fim || new Date(item.promocao_fim) >= now);
+    const showPromo = promoActive && item.preco_promocional != null && inWindow;
+    if (showPromo) {
+      price.innerHTML = `<span style="color:#dc3545; font-weight:700;">${priceBRL(item.preco_promocional)}</span>
+                         <span style="text-decoration: line-through; color: var(--text-muted); font-size: 0.9rem; margin-left: 6px;">${priceBRL(item.preco)}</span>`;
+      const badge = document.createElement('span');
+      badge.className = 'badge badge-warning';
+      badge.textContent = 'Promoção';
+      badge.style.marginLeft = '8px';
+      header.appendChild(badge);
+    } else {
+      price.textContent = priceBRL(item.preco);
+    }
 
     header.appendChild(title);
     header.appendChild(price);
@@ -106,6 +132,19 @@
       renderGrid(itens);
     });
     filtrosEl.appendChild(btnTodos);
+
+    // Filtro de promoção
+    const btnPromo = document.createElement('button');
+    btnPromo.type = 'button';
+    btnPromo.className = 'menu-filter';
+    btnPromo.textContent = 'Em promoção';
+    btnPromo.addEventListener('click', async () => {
+      filtrosEl.querySelectorAll('.menu-filter').forEach((b) => b.classList.remove('active'));
+      btnPromo.classList.add('active');
+      const itens = await fetchPromocoes(null);
+      renderGrid(itens);
+    });
+    filtrosEl.appendChild(btnPromo);
 
     categorias.forEach((cat) => {
       const btn = document.createElement('button');

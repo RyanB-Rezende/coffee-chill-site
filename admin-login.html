@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Administrativo - Coffee & Chill</title>
+  <link rel="stylesheet" href="css/sobre.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+  <div class="admin-login-container">
+    <div class="admin-login-card">
+      <div class="admin-login-header">
+        <h1 class="admin-logo">☕ Coffee & Chill</h1>
+        <p class="admin-subtitle">Área Administrativa</p>
+      </div>
+
+      <!-- FORMULÁRIO DE LOGIN -->
+      <form id="loginForm" class="admin-login-form">
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required 
+            autocomplete="email"
+            placeholder="seu@email.com"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input 
+            type="password" 
+            id="senha" 
+            name="senha" 
+            required 
+            autocomplete="current-password"
+            placeholder="••••••••"
+          >
+        </div>
+
+        <div id="errorMessage" class="error-message" style="display: none;"></div>
+        <!-- Confirmação de e-mail desativada no ambiente -->
+
+        <button type="submit" class="btn-login" id="btnLogin">
+          <span class="btn-text">Entrar</span>
+          <span class="btn-loading" style="display: none;">Entrando...</span>
+        </button>
+      </form>
+
+      <!-- FORMULÁRIO DE CADASTRO (SÓ APARECE SE NÃO HOUVER ADMINS) -->
+      <form id="cadastroForm" class="admin-login-form" style="display: none;">
+        <div class="form-group">
+          <label for="cadastroNome">Nome Completo *</label>
+          <input 
+            type="text" 
+            id="cadastroNome" 
+            required 
+            placeholder="Seu nome completo"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="cadastroEmail">E-mail *</label>
+          <input 
+            type="email" 
+            id="cadastroEmail" 
+            required 
+            autocomplete="email"
+            placeholder="seu@email.com"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="cadastroSenha">Senha *</label>
+          <input 
+            type="password" 
+            id="cadastroSenha" 
+            required 
+            minlength="6"
+            placeholder="Mínimo 6 caracteres"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="cadastroConfirmSenha">Confirmar Senha *</label>
+          <input 
+            type="password" 
+            id="cadastroConfirmSenha" 
+            required 
+            minlength="6"
+            placeholder="Digite a senha novamente"
+          >
+        </div>
+
+        <div id="cadastroErrorMessage" class="error-message" style="display: none;"></div>
+        <div id="cadastroSuccessMessage" class="success-message" style="display: none;"></div>
+
+        <button type="submit" class="btn-login" id="btnCadastro">
+          <span class="btn-text">Criar Primeiro Administrador</span>
+          <span class="btn-loading" style="display: none;">Criando...</span>
+        </button>
+      </form>
+
+      <div class="admin-login-footer">
+        <button id="toggleFormBtn" class="back-link" style="display: none; border: none; background: none; cursor: pointer;">
+          <!-- Texto será alterado dinamicamente -->
+        </button>
+        <a href="index.html" class="back-link">← Voltar ao site</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/admin-auth.js"></script>
+</body>
+</html>
