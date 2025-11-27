@@ -62,6 +62,38 @@
   gap: 0.6rem;
   margin-bottom: 0.7rem;
 }
+.promo-badge {
+  align-self: flex-start;
+  background: linear-gradient(135deg, #ffcf33, #ffb300);
+  color: #402f00;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(255, 179, 0, 0.35);
+}
+
+.menu-card-price {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.price-promo {
+  color: #dc3545;
+  font-weight: 800;
+}
+
+.price-original {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  font-size: 0.9rem;
+}
+
+.price-normal {
+  color: var(--text-strong);
+  font-weight: 700;
+}
 
 .menu-card-header h3 {
   font-size: 1.05rem;

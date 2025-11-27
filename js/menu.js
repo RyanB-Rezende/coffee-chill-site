@@ -72,12 +72,11 @@
                      (!item.promocao_fim || new Date(item.promocao_fim) >= now);
     const showPromo = promoActive && item.preco_promocional != null && inWindow;
     if (showPromo) {
-      price.innerHTML = `<span style="color:#dc3545; font-weight:700;">${priceBRL(item.preco_promocional)}</span>
-                         <span style="text-decoration: line-through; color: var(--text-muted); font-size: 0.9rem; margin-left: 6px;">${priceBRL(item.preco)}</span>`;
+      price.innerHTML = `<span class="price-promo">${priceBRL(item.preco_promocional)}</span>
+                         <span class="price-original">${priceBRL(item.preco)}</span>`;
       const badge = document.createElement('span');
-      badge.className = 'badge badge-warning';
+      badge.className = 'promo-badge';
       badge.textContent = 'Promoção';
-      badge.style.marginLeft = '8px';
       header.appendChild(badge);
     } else {
       price.textContent = priceBRL(item.preco);

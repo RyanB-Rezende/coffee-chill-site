@@ -144,12 +144,13 @@
               <th>Preço</th>
               <th>Status</th>
               <th>Destaque</th>
+                <th>Promoção</th>
               <th>Ações</th>
             </tr>
           </thead>
           <tbody id="tabelaItens">
             <tr>
-              <td colspan="7" style="text-align: center; padding: 2rem;">
+                <td colspan="8" style="text-align: center; padding: 2rem;">
                 Carregando itens...
               </td>
             </tr>
@@ -276,37 +277,82 @@
             <textarea id="itemDescricao" placeholder="Descrição do item"></textarea>
           </div>
 
-          <div class="form-group">
-            <label>Promoção</label>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="itemPrecoPromocional">Preço promocional (R$)</label>
-                <input type="number" id="itemPrecoPromocional" step="0.01" min="0" placeholder="Opcional">
-              </div>
-              <div class="form-group">
-                <label for="itemPromocaoAtiva">Ativa?</label>
-                <select id="itemPromocaoAtiva">
-                  <option value="false">Não</option>
-                  <option value="true">Sim</option>
-                </select>
-              </div>
+            <div class="form-group image-upload-container">
+              <label for="itemImagem">Imagem</label>
+              <img id="itemImagemPreview" class="image-preview" alt="Preview">
+              <input type="file" id="itemImagem" accept="image/*">
             </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="itemPromocaoInicio">Início</label>
-                <input type="datetime-local" id="itemPromocaoInicio">
-              </div>
-              <div class="form-group">
-                <label for="itemPromocaoFim">Fim</label>
-                <input type="datetime-local" id="itemPromocaoFim">
-              </div>
-            </div>
-          </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-secondary" id="btnCancelItem">Cancelar</button>
+          <button class="btn-primary" id="btnSaveItem">Salvar</button>
+        </div>
+      </div>
+    </div>
 
-          <div class="form-group image-upload-container">
-            <label for="itemImagem">Imagem</label>
-            <img id="itemImagemPreview" class="image-preview" alt="Preview">
-            <input type="file" id="itemImagem" accept="image/*">
+    <!-- MODAL: PROMOÇÃO -->
+    <div class="modal-overlay" id="modalPromocao">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Gerenciar Promoção</h3>
+          <button class="btn-close" id="btnCloseModalPromocao">×</button>
+        </div>
+        <div class="modal-body">
+          <form id="formPromocao" class="modal-form">
+            <input type="hidden" id="promocaoItemId">
+            <input type="hidden" id="promocaoPrecoOriginal">
+          
+            <div class="form-group">
+              <label for="promocaoItemNome">Item</label>
+              <input type="text" id="promocaoItemNome" disabled style="background: #f5f5f5; cursor: not-allowed;">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="promocaoPrecoNormal">Preço Normal (R$)</label>
+                <input type="number" id="promocaoPrecoNormal" disabled style="background: #f5f5f5; cursor: not-allowed;" step="0.01">
+              </div>
+              <div class="form-group">
+                <label for="promocaoPrecoPromocional">Preço Promocional (R$) *</label>
+                <input type="text" id="promocaoPrecoPromocional" required inputmode="decimal" placeholder="Ex.: 9,99">
+                <small style="color: var(--text-muted);">Formato: use vírgula. Ex.: 7,50</small>
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label for="promocaoAtiva">Status da Promoção</label>
+              <select id="promocaoAtiva">
+                <option value="false">Inativa</option>
+                <option value="true">Ativa</option>
+              </select>
+            </div>
+          
+            <div class="form-row">
+              <div class="form-group">
+                <label for="promocaoInicio">Data/Hora Início *</label>
+                <input type="datetime-local" id="promocaoInicio" required>
+              </div>
+              <div class="form-group">
+                <label for="promocaoFim">Data/Hora Fim *</label>
+                <input type="datetime-local" id="promocaoFim" required>
+              </div>
+            </div>
+          
+            <div class="form-group" style="background: #fff3cd; padding: 1rem; border-radius: 8px; border: 1px solid #ffc107;">
+              <p style="margin: 0; color: #856404; font-size: 0.9rem;">
+                ⚠️ O preço promocional deve ser menor que o preço normal (R$ <span id="precoNormalDisplay">0,00</span>)
+              </p>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-secondary" id="btnRemoverPromocao" style="margin-right: auto;">🗑️ Remover Promoção</button>
+          <button class="btn-secondary" id="btnCancelPromocao">Cancelar</button>
+          <button class="btn-primary" id="btnSavePromocao">Salvar Promoção</button>
+        </div>
+      </div>
+    </div>
           </div>
         </form>
       </div>
