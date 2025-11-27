@@ -8,19 +8,62 @@
   <link rel="stylesheet" href="css/home.css">
 </head>
 <body class="home-page">
-  <!-- Hero Section -->
+  <!-- Hero Section com Slider -->
   <section class="home-hero">
-    <div class="home-hero-content">
-      <div class="home-logo">Coffee & Chill</div>
-      <p class="home-tagline">
-        Seu lugar favorito para café e boas conversas.
-      </p>
-      <p class="home-descricao">
-        Bem-vindo à Coffee & Chill, onde cada xícara é preparada com cuidado
-        e o ambiente foi pensado para você relaxar, trabalhar ou simplesmente
-        aproveitar um momento tranquilo. Descubra nosso cardápio, conheça
-        nossa história ou entre em contato para tirar dúvidas.
-      </p>
+    <div class="slider-container">
+      <div class="slider-wrapper">
+        <!-- Slide 1 -->
+        <div class="slide active">
+          <div class="slide-content">
+            <h1 class="slide-title">Coffee & Chill</h1>
+            <p class="slide-text">Seu lugar favorito para café e boas conversas</p>
+            <a href="menu.html" class="slide-btn">Ver Cardápio</a>
+          </div>
+          <div class="slide-overlay"></div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide">
+          <div class="slide-content">
+            <h1 class="slide-title">Cafés Especiais</h1>
+            <p class="slide-text">Grãos selecionados e preparo artesanal para uma experiência única</p>
+            <a href="menu.html" class="slide-btn">Conheça Nossos Cafés</a>
+          </div>
+          <div class="slide-overlay"></div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide">
+          <div class="slide-content">
+            <h1 class="slide-title">Ambiente Aconchegante</h1>
+            <p class="slide-text">Wi-Fi, tomadas e o conforto perfeito para trabalhar ou relaxar</p>
+            <a href="sobre.html" class="slide-btn">Conheça o Espaço</a>
+          </div>
+          <div class="slide-overlay"></div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide">
+          <div class="slide-content">
+            <h1 class="slide-title">Promoções Especiais</h1>
+            <p class="slide-text">Confira nossas ofertas e descontos imperdíveis</p>
+            <a href="menu.html" class="slide-btn">Ver Promoções</a>
+          </div>
+          <div class="slide-overlay"></div>
+        </div>
+      </div>
+
+      <!-- Controles -->
+      <button class="slider-control prev" aria-label="Anterior">‹</button>
+      <button class="slider-control next" aria-label="Próximo">›</button>
+
+      <!-- Indicadores -->
+      <div class="slider-indicators">
+        <button class="indicator active" data-slide="0"></button>
+        <button class="indicator" data-slide="1"></button>
+        <button class="indicator" data-slide="2"></button>
+        <button class="indicator" data-slide="3"></button>
+      </div>
     </div>
   </section>
 
@@ -109,5 +152,7 @@
       </a>
     </div>
   </footer>
+  
+  <script src="js/slider.js"></script>
 </body>
 </html>
