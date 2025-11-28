@@ -72,12 +72,10 @@
                      (!item.promocao_fim || new Date(item.promocao_fim) >= now);
     const showPromo = promoActive && item.preco_promocional != null && inWindow;
     if (showPromo) {
-      price.innerHTML = `<span class="price-promo">${priceBRL(item.preco_promocional)}</span>
-                         <span class="price-original">${priceBRL(item.preco)}</span>`;
-      const badge = document.createElement('span');
-      badge.className = 'promo-badge';
-      badge.textContent = 'Promoção';
-      header.appendChild(badge);
+      price.innerHTML = `<span class=\"price-promo\">${priceBRL(item.preco_promocional)}</span>
+                         <span class=\"price-original\">${priceBRL(item.preco)}</span>`;
+      // Ativar contorno amarelo somente em promoção
+      card.classList.add('promo-card');
     } else {
       price.textContent = priceBRL(item.preco);
     }
